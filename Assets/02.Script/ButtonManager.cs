@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -37,7 +38,15 @@ public class ButtonManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                print(selectedButton);
+                if (selectedButton == 0)
+                {
+                    SceneManager.LoadScene("MainScene");
+                }
+
+                if (selectedButton == 1)
+                {
+                    SceneManager.LoadScene("RuleScene");
+                }
             }
         }
     }
