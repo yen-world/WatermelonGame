@@ -51,12 +51,12 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    void ChangeButtonSprite(GameObject[] buttons, SpriteRenderer[] sprites, int targetNum)
+    void ChangeButtonSprite(GameObject[] _buttons, SpriteRenderer[] _sprites, int _targetNum)
     {
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < _buttons.Length; i++)
         {
-            buttons[i].GetComponent<SpriteRenderer>().sprite = sprites[i * 2].sprite;
+            _buttons[i].GetComponent<SpriteRenderer>().sprite = _sprites[i * 2].sprite;
         }
-        buttons[targetNum].GetComponent<SpriteRenderer>().sprite = sprites[targetNum * 2 + 1].sprite;
+        _buttons[_targetNum].GetComponent<SpriteRenderer>().sprite = _sprites[_targetNum * 2 + 1].sprite;
     }
 }
