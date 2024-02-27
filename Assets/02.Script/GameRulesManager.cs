@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameRulesManager : MonoBehaviour
 {
@@ -27,9 +28,9 @@ public class GameRulesManager : MonoBehaviour
             if (selectedRule > 0) selectedRule--;
             ChangeRule(selectedRule);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print(selectedRule);
+            SceneManager.LoadScene("TitleScene");
         }
     }
 
