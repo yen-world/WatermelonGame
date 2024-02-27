@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "WatermelonGame.sln"
+    "dotnet.defaultSolution": "WatermelonGame.sln",
+    "[cpp]": {
+        "files.encoding": "euckr"
+    }
 }
