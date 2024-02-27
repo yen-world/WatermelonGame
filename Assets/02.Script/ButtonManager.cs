@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    // ÇöÀç À§Ä¡ÇÑ ¾ÀÀÌ Å¸ÀÌÆ² ¾ÀÀÎÁö Ã¼Å©
+    // í˜„ì¬ ìœ„ì¹˜í•œ ì”¬ì´ íƒ€ì´í‹€ ì”¬ì¸ì§€ ì²´í¬
     bool isTitleScene;
-    // ÇöÀç ¼±ÅÃÁßÀÎ ¹öÆ°ÀÇ ÀÎµ¦½º
+    // í˜„ì¬ ì„ íƒì¤‘ì¸ ë²„íŠ¼ì˜ ì¸ë±ìŠ¤
     int selectedButton;
 
-    // Å¸ÀÌÆ² ¾ÀÀÇ ¹öÆ° ¿ÀºêÁ§Æ®
+    // íƒ€ì´í‹€ ì”¬ì˜ ë²„íŠ¼ ì˜¤ë¸Œì íŠ¸
     [SerializeField] GameObject[] titleButtons;
-    // ¹öÆ° È°¼ºÈ­, ¹öÆ° ºñÈ°¼ºÈ­ ÀÌ¹ÌÁö¸¦ ´ãÀº ½ºÇÁ¶óÀÌÆ®
+    // ë²„íŠ¼ í™œì„±í™”, ë²„íŠ¼ ë¹„í™œì„±í™” ì´ë¯¸ì§€ë¥¼ ë‹´ì€ ìŠ¤í”„ë¼ì´íŠ¸
     [SerializeField] SpriteRenderer[] titleButtonSprites;
 
-    // ¸ŞÀÎ ¾ÀÀ¸·Î ÀÌµ¿ÇÏ±â Àü ¶ç¿öÁÖ´Â ¿ÀºêÁ§Æ®
+    // ë©”ì¸ ì”¬ìœ¼ë¡œ ì´ë™í•˜ê¸° ì „ ë„ì›Œì£¼ëŠ” ì˜¤ë¸Œì íŠ¸
     [SerializeField] GameObject titleToGameBackground;
 
     // Start is called before the first frame update
@@ -23,17 +23,17 @@ public class ButtonManager : MonoBehaviour
     {
         isTitleScene = true;
         selectedButton = 0;
-        // Ã³À½ ½ÃÀÛÇßÀ» ¶§´Â Ã¹ ¹øÀç ¹öÆ°ÀÌ ¼±ÅÃµÈ »óÅÂ
+        // ì²˜ìŒ ì‹œì‘í–ˆì„ ë•ŒëŠ” ì²« ë²ˆì¬ ë²„íŠ¼ì´ ì„ íƒëœ ìƒíƒœ
         titleButtons[selectedButton].GetComponent<SpriteRenderer>().sprite = titleButtonSprites[1].sprite;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // ÇöÀç Å¸ÀÌÆ² ¾ÀÀÌ¶ó¸é
+        // í˜„ì¬ íƒ€ì´í‹€ ì”¬ì´ë¼ë©´
         if (isTitleScene)
         {
-            // »óÇÏ ¹æÇâÅ°·Î ¹öÆ° ¼¿·ºÆ®
+            // ìƒí•˜ ë°©í–¥í‚¤ë¡œ ë²„íŠ¼ ì…€ë ‰íŠ¸
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 selectedButton--;
@@ -46,7 +46,7 @@ public class ButtonManager : MonoBehaviour
                 if (selectedButton > 1) selectedButton = 0;
                 ChangeButtonSprite(titleButtons, titleButtonSprites, selectedButton);
             }
-            // ½ºÆäÀÌ½º¹Ù·Î ÇØ´ç ¹öÆ° Å¬¸¯
+            // ìŠ¤í˜ì´ìŠ¤ë°”ë¡œ í•´ë‹¹ ë²„íŠ¼ í´ë¦­
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (selectedButton == 0)
@@ -62,7 +62,7 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    // ¼±ÅÃµÈ ¹öÆ°ÀÇ ½ºÇÁ¶óÀÌÆ®¸¦ ¹Ù²ãÁÖ´Â ÇÔ¼ö
+    // ì„ íƒëœ ë²„íŠ¼ì˜ ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ë°”ê¿”ì£¼ëŠ” í•¨ìˆ˜
     void ChangeButtonSprite(GameObject[] _buttons, SpriteRenderer[] _sprites, int _targetNum)
     {
         for (int i = 0; i < _buttons.Length; i++)

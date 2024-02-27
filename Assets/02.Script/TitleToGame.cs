@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleToGame : MonoBehaviour
 {
-    // TitleToGameBackground¿¡ ºÙ¾îÀÖ´Â Animator
+    // TitleToGameBackgroundì— ë¶™ì–´ìžˆëŠ” Animator
     Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class TitleToGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ÇöÀç ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ Á¾·áµÇ¸é ¸ÞÀÎ¾ÀÀ¸·Î ÀüÈ¯
+        // í˜„ìž¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì¢…ë£Œë˜ë©´ ë©”ì¸ì”¬ìœ¼ë¡œ ì „í™˜
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
             SceneManager.LoadScene("MainScene");

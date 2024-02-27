@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameRulesManager : MonoBehaviour
 {
-    // ÇöÀç ¼±ÅÃµÈ °ÔÀÓ ¹æ¹ı ÆäÀÌÁö ÀÎµ¦½º
+    // í˜„ì¬ ì„ íƒëœ ê²Œì„ ë°©ë²• í˜ì´ì§€ ì¸ë±ìŠ¤
     int selectedRule;
-    // °ÔÀÓ ¹æ¹ı ÆäÀÌÁö ¿ÀºêÁ§Æ®
+    // ê²Œì„ ë°©ë²• í˜ì´ì§€ ì˜¤ë¸Œì íŠ¸
     [SerializeField] GameObject[] Rules;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class GameRulesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ÁÂ¿ì ¹æÇâÅ°·Î ÆäÀÌÁö ³Ñ±è
+        // ì¢Œìš° ë°©í–¥í‚¤ë¡œ í˜ì´ì§€ ë„˜ê¹€
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (selectedRule < 2) selectedRule++;
@@ -31,14 +31,14 @@ public class GameRulesManager : MonoBehaviour
             if (selectedRule > 0) selectedRule--;
             ChangeRule(selectedRule);
         }
-        // ESCÅ°¸¦ ´­·¯¼­ Å¸ÀÌÆ² ¾ÀÀ¸·Î ÀüÈ¯
+        // ESCí‚¤ë¥¼ ëˆŒëŸ¬ì„œ íƒ€ì´í‹€ ì”¬ìœ¼ë¡œ ì „í™˜
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("TitleScene");
         }
     }
 
-    // ÆäÀÌÁö ÀüÈ¯ ½ÃÅ°´Â ÇÔ¼ö
+    // í˜ì´ì§€ ì „í™˜ ì‹œí‚¤ëŠ” í•¨ìˆ˜
     void ChangeRule(int _selectedNum)
     {
         for (int i = 0; i < Rules.Length; i++)
