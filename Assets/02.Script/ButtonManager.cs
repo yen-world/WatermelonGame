@@ -11,6 +11,8 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] GameObject[] titleButtons;
     [SerializeField] SpriteRenderer[] titleButtonSprites;
 
+    [SerializeField] GameObject titleToGameBackground;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,7 @@ public class ButtonManager : MonoBehaviour
             {
                 if (selectedButton == 0)
                 {
-                    SceneManager.LoadScene("MainScene");
+                    titleToGameBackground.gameObject.SetActive(true);
                 }
 
                 if (selectedButton == 1)
