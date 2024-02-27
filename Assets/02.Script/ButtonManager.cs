@@ -5,12 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    // 현재 위치한 씬이 타이틀 씬인지 체크
     bool isTitleScene;
+    // 현재 선택중인 버튼의 인덱스
     int selectedButton;
 
+    // 타이틀 씬의 버튼 오브젝트
     [SerializeField] GameObject[] titleButtons;
+    // 버튼 활성화, 버튼 비활성화 이미지를 담은 스프라이트
     [SerializeField] SpriteRenderer[] titleButtonSprites;
 
+    // 메인 씬으로 이동하기 전 띄워주는 오브젝트
     [SerializeField] GameObject titleToGameBackground;
 
     // Start is called before the first frame update
@@ -18,14 +23,17 @@ public class ButtonManager : MonoBehaviour
     {
         isTitleScene = true;
         selectedButton = 0;
+        // 처음 시작했을 때는 첫 번재 버튼이 선택된 상태
         titleButtons[selectedButton].GetComponent<SpriteRenderer>().sprite = titleButtonSprites[1].sprite;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // 현재 타이틀 씬이라면
         if (isTitleScene)
         {
+            // 상하 방향키로 버튼 셀렉트
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 selectedButton--;
@@ -38,6 +46,7 @@ public class ButtonManager : MonoBehaviour
                 if (selectedButton > 1) selectedButton = 0;
                 ChangeButtonSprite(titleButtons, titleButtonSprites, selectedButton);
             }
+            // 스페이스바로 해당 버튼 클릭
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (selectedButton == 0)
@@ -53,6 +62,7 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    // 선택된 버튼의 스프라이트를 바꿔주는 함수
     void ChangeButtonSprite(GameObject[] _buttons, SpriteRenderer[] _sprites, int _targetNum)
     {
         for (int i = 0; i < _buttons.Length; i++)
