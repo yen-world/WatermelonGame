@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool isActiveMenu;
     private void Awake()
     {
         if (instance == null)
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        isActiveMenu = false;
     }
 
     // Update is called once per frame
