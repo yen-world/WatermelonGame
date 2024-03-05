@@ -32,10 +32,5 @@ public class CloudController : MonoBehaviour
                 this.transform.Translate(vector * speed * Time.deltaTime);
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-        }
     }
 }
