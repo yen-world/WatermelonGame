@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 
     public bool isActiveMenu;
     public GameObject[] Fruits;
-    public GameObject GuideLine;
 
     private void Awake()
     {

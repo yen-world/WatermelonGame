@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class FruitManager : MonoBehaviour
 {
+    [SerializeField] GameObject respawnArea;
+
     int randomNumber, nextRandomNumber;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        CreateFruit();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) CreateFruit();
+
     }
 
     public void CreateFruit()
     {
         randomNumber = Random.Range(0, 5);
-        Instantiate(GameManager.Instance.Fruits[randomNumber], GameManager.Instance.GuideLine.transform);
+        Instantiate(GameManager.Instance.Fruits[randomNumber], respawnArea.transform.position, Quaternion.identity, respawnArea.transform);
     }
 
     public void DropFruit()
