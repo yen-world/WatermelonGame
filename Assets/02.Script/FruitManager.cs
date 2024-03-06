@@ -28,6 +28,8 @@ public class FruitManager : MonoBehaviour
 
     public void DropFruit()
     {
-
+        GameObject fruit = respawnArea.transform.GetChild(0).gameObject;
+        fruit.transform.SetParent(transform.root);
+        fruit.GetComponent<Rigidbody2D>().isKinematic = false;
     }
 }
