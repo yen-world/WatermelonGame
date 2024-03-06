@@ -263,6 +263,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActiveMenu: 0
+  Fruits:
+  - {fileID: 3642720870589804997, guid: d93d1dcb7a07c3e4a80fee33460d95ae, type: 3}
+  - {fileID: 695202154778872636, guid: fc7e299fb8860b84485117e9adc26cbb, type: 3}
+  - {fileID: 7356292702427606634, guid: 87f70e80175053c43b00823c82444f1f, type: 3}
+  - {fileID: 1709960409419111750, guid: 278c3a5d129208a4f853922cdf235872, type: 3}
+  - {fileID: 559528240075880071, guid: 21adb792a49238f40be07b60d39e840d, type: 3}
+  - {fileID: 713616624313950879, guid: 5f7227498537a124583a55eaf8ca6262, type: 3}
+  - {fileID: 9029195502672963356, guid: dcf17c7604c19bf499db5d58eb9c01ef, type: 3}
+  - {fileID: 8531024278696021422, guid: f6c0a37856ec30a46a42b95b4d472a98, type: 3}
+  - {fileID: 7002573439701170278, guid: 981094f68486fb541ae4890b7e0dc10a, type: 3}
+  - {fileID: 4713221443010014215, guid: af4ca720ac368d74ab4f5cc33cb55745, type: 3}
+  - {fileID: 1955683673203022755, guid: afc810730d81bed4cbe4aee93b3cb6bd, type: 3}
+  GuideLine: {fileID: 0}
 --- !u!4 &568590244
 Transform:
   m_ObjectHideFlags: 0
@@ -612,7 +625,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.6, y: 2.6}
+  m_Size: {x: 2.3, y: 2.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

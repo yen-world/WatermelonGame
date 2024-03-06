@@ -18,13 +18,13 @@ public class FruitManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Space)) CreateFruit();
     }
 
-    void CreateFruit()
+    public void CreateFruit()
     {
         randomNumber = Random.Range(0, 5);
         Instantiate(GameManager.Instance.Fruits[randomNumber], GameManager.Instance.GuideLine.transform);
     }
 
-    void DropFruit()
+    public void DropFruit()
     {
 
     }

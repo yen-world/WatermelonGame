@@ -6,11 +6,12 @@ public class CloudController : MonoBehaviour
 {
     Vector2 vector;
     [SerializeField] float speed;
+    FruitManager theFruit;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        theFruit = FindObjectOfType<FruitManager>();
     }
 
     // Update is called once per frame
@@ -31,6 +32,10 @@ public class CloudController : MonoBehaviour
                 vector.Set(1, 0);
                 this.transform.Translate(vector * speed * Time.deltaTime);
             }
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            theFruit.DropFruit();
         }
     }
 }
