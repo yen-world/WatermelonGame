@@ -6,11 +6,14 @@ public class FruitManager : MonoBehaviour
 {
     [SerializeField] GameObject respawnArea;
 
-    int randomNumber, nextRandomNumber;
+    int randomNumber;
+    int nextRandomNumber;
 
     // Start is called before the first frame update
     void Start()
     {
+        randomNumber = Random.Range(0, 5);
+        nextRandomNumber = Random.Range(0, 5);
         CreateFruit();
     }
 
@@ -22,7 +25,6 @@ public class FruitManager : MonoBehaviour
 
     public void CreateFruit()
     {
-        randomNumber = Random.Range(0, 5);
         Instantiate(GameManager.Instance.Fruits[randomNumber], respawnArea.transform.position, Quaternion.identity, respawnArea.transform);
     }
 
@@ -31,5 +33,11 @@ public class FruitManager : MonoBehaviour
         GameObject fruit = respawnArea.transform.GetChild(0).gameObject;
         fruit.transform.SetParent(transform.root);
         fruit.GetComponent<Rigidbody2D>().isKinematic = false;
+    }
+
+    public void GetNextFruit()
+    {
+        randomNumber = nextRandomNumber;
+        nextRandomNumber = Random.Range(0, 5);
     }
 }
