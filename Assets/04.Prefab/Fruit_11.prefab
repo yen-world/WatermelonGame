@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6220183125961019378}
   - component: {fileID: 1513577158750735908}
   - component: {fileID: 6149565324761335507}
+  - component: {fileID: 2987701419436486378}
   m_Layer: 0
   m_Name: Fruit_11
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +121,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.3
+  m_Radius: 1.25
 --- !u!50 &6149565324761335507
 Rigidbody2D:
   serializedVersion: 4
@@ -148,3 +149,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2987701419436486378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955683673203022755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12815040175fc2448080db695ebc296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
