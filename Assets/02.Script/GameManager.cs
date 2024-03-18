@@ -6,16 +6,11 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
-    public static GameManager Instance
-    {
-        get
-        {
-            return instance;
-        }
-    }
+    public static GameManager Instance { get { return instance; } }
 
     public bool isActiveMenu;
     public GameObject[] Fruits;
+
 
     private void Awake()
     {
