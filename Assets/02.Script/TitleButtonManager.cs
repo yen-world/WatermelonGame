@@ -16,6 +16,7 @@ public class TitleButtonManager : MonoBehaviour
     // 메인 씬으로 이동하기 전 띄워주는 오브젝트
     [SerializeField] GameObject titleToGameBackground;
 
+
     // Start is called before the first frame update
     void Start()
     {
