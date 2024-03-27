@@ -37,6 +37,8 @@ public class FruitManager : MonoBehaviour
 
     public void EvolutionFruit(Vector2 collisionPoint, int level)
     {
+        GameManager.Instance.currentScore += GameManager.Instance.ScoreTable[level];
+
         if (level != 11)
         {
             GameObject fruit = Instantiate(GameManager.Instance.Fruits[level], collisionPoint, Quaternion.identity);
