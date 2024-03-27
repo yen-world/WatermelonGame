@@ -2,22 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionData
-{
-    public Vector2 vector;
-    public int level;
-
-    public CollisionData(Vector2 vector, int level)
-    {
-        this.vector = vector;
-        this.level = level;
-    }
-}
-
 public class FruitManager : MonoBehaviour
 {
-    public List<CollisionData> dataList = new List<CollisionData>();
-
     [SerializeField] GameObject respawnArea;
 
     int randomNumber;
@@ -34,11 +20,7 @@ public class FruitManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dataList.Count > 0)
-        {
-            EvolutionFruit(dataList[0].vector, dataList[0].level);
-            dataList.RemoveAt(0);
-        }
+
     }
 
     public void CreateFruit()
@@ -57,6 +39,7 @@ public class FruitManager : MonoBehaviour
     {
         GameObject fruit = Instantiate(GameManager.Instance.Fruits[level], collisionPoint, Quaternion.identity);
         fruit.GetComponent<Rigidbody2D>().isKinematic = false;
+        fruit.GetComponent<Fruit>().isDropped = true;
 
         // switch (level)
         // {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fruit : MonoBehaviour
 {
     FruitManager fruitManager;
-    bool isDropped = false;
+    public bool isDropped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +28,20 @@ public class Fruit : MonoBehaviour
             fruitManager.CreateFruit();
         }
 
+        Vector2 thisPos = this.transform.position;
+        Vector2 otherPos = other.transform.position;
+
         if (other.transform.name == this.name)
         {
-            // Vector2 collisionPoint = other.contacts[0].point;
-            // int fruitLevel = int.Parse(this.name[6].ToString());
-            print(transform.position.y);
-            // // fruitManager.EvolutionFruit(collisionPoint, fruitLevel);
-            // fruitManager.dataList.Add(new CollisionData(collisionPoint, fruitLevel));
-            if (other.transform.position.y < this.transform.position.y)
+            if (thisPos.y < otherPos.y || (thisPos.y == otherPos.y && thisPos.x < otherPos.x))
             {
-                Destroy(other.gameObject);
+                Vector2 collisionPoint = other.contacts[0].point;
+                int level = int.Parse(this.transform.name[6].ToString());
+
+                fruitManager.EvolutionFruit(collisionPoint, level);
             }
+
+            Destroy(this.gameObject);
         }
 
     }
