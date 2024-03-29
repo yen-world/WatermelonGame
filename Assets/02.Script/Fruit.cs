@@ -21,28 +21,29 @@ public class Fruit : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!isDropped)
+        if (other.transform.tag == "Wall" || other.transform.tag == "Fruit")
         {
-            isDropped = true;
-            fruitManager.GetNextFruit();
-            fruitManager.CreateFruit();
-        }
-
-        Vector2 thisPos = this.transform.position;
-        Vector2 otherPos = other.transform.position;
-
-        if (other.transform.name == this.name)
-        {
-            if (thisPos.y < otherPos.y || (thisPos.y == otherPos.y && thisPos.x < otherPos.x))
+            if (!isDropped)
             {
-                Vector2 collisionPoint = other.contacts[0].point;
-                int level = int.Parse(this.transform.name[6].ToString());
-
-                fruitManager.EvolutionFruit(collisionPoint, level);
+                isDropped = true;
+                fruitManager.GetNextFruit();
+                fruitManager.CreateFruit();
             }
 
-            Destroy(this.gameObject);
-        }
+            if (other.transform.name == this.name)
+            {
+                Vector2 thisPos = this.transform.position;
+                Vector2 otherPos = other.transform.position;
 
+                if (thisPos.y < otherPos.y || (thisPos.y == otherPos.y && thisPos.x < otherPos.x))
+                {
+                    Vector2 collisionPoint = other.contacts[0].point;
+                    int level = int.Parse(this.transform.name[6].ToString());
+
+                    fruitManager.EvolutionFruit(collisionPoint, level);
+                }
+                Destroy(this.gameObject);
+            }
+        }
     }
 }
