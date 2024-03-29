@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameRulesManager : MonoBehaviour
+public class GameRules : MonoBehaviour
 {
     // 현재 선택된 게임 방법 페이지 인덱스
     int selectedRule;

@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainButtonManager : MonoBehaviour
+public class MainButton : MonoBehaviour
 {
     int selectedButton;
-    bool isActiveMenu;
+    public bool isActiveMenu;
 
     [SerializeField] GameObject menuUI;
     [SerializeField] GameObject blackBackground;

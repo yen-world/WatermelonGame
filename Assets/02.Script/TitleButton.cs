@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleButtonManager : MonoBehaviour
+public class TitleButton : MonoBehaviour
 {
     // 현재 선택중인 버튼의 인덱스
     int selectedButton;
