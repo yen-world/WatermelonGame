@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudController : MonoBehaviour
+public class FruitController : MonoBehaviour
 {
     Vector2 vector;
-    [SerializeField] float speed;
+    float speed = 5f;
     FruitManager theFruit;
     MainButton mainButtonScript;
 
