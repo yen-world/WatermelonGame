@@ -6,6 +6,9 @@ public class FruitController : MonoBehaviour
 {
     Vector2 vector;
     float speed = 5f;
+
+    public GameObject line;
+
     FruitManager theFruit;
     MainButton mainButtonScript;
 
@@ -37,8 +40,10 @@ public class FruitController : MonoBehaviour
                     this.transform.Translate(vector * speed * Time.deltaTime);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && theFruit.isDropped)
             {
+                line.gameObject.SetActive(false);
+                theFruit.isDropped = false;
                 theFruit.DropFruit();
             }
         }

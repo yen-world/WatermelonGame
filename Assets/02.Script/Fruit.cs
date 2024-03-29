@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    FruitManager fruitManager;
     public bool isDropped = false;
+
+    FruitManager fruitManager;
+    FruitController controller;
 
     // Start is called before the first frame update
     void Start()
     {
         fruitManager = FindObjectOfType<FruitManager>();
+        controller = FindObjectOfType<FruitController>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,9 @@ public class Fruit : MonoBehaviour
         {
             if (!isDropped)
             {
+                controller.line.gameObject.SetActive(true);
+
+                fruitManager.isDropped = true;
                 isDropped = true;
                 fruitManager.GetNextFruit();
                 fruitManager.CreateFruit();

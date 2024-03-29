@@ -10,6 +10,7 @@ public class FruitManager : MonoBehaviour
 
     int randomNumber;
     int nextRandomNumber;
+    public bool isDropped;
 
     ScoreManager theScore;
 
@@ -18,6 +19,7 @@ public class FruitManager : MonoBehaviour
     {
         theScore = FindObjectOfType<ScoreManager>();
 
+        isDropped = true;
         randomNumber = Random.Range(0, 5);
         nextRandomNumber = Random.Range(0, 5);
         CreateFruit();
