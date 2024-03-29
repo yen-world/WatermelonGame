@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainButtonManager : MonoBehaviour
 {
     int selectedButton;
+    bool isActiveMenu;
 
     [SerializeField] GameObject menuUI;
     [SerializeField] GameObject blackBackground;
@@ -19,6 +20,7 @@ public class MainButtonManager : MonoBehaviour
     void Start()
     {
         selectedButton = 0;
+        isActiveMenu = false;
     }
 
     // Update is called once per frame
@@ -27,9 +29,9 @@ public class MainButtonManager : MonoBehaviour
         // ESC키를 눌러서 메뉴창 진입
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!GameManager.Instance.isActiveMenu)
+            if (!isActiveMenu)
             {
-                GameManager.Instance.isActiveMenu = true;
+                isActiveMenu = true;
                 blackBackground.gameObject.SetActive(true);
                 menuUI.gameObject.SetActive(true);
                 ChangeButtonSprite(mainButtons, mainButtonSprites, 0);
@@ -53,25 +55,25 @@ public class MainButtonManager : MonoBehaviour
         // 메뉴창이 열려있을 때 스페이스바를 눌러서 해당 버튼 실행
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (GameManager.Instance.isActiveMenu)
+            if (isActiveMenu)
             {
                 // 게임에 돌아가기
                 if (selectedButton == 0)
                 {
-                    GameManager.Instance.isActiveMenu = false;
+                    isActiveMenu = false;
                     blackBackground.gameObject.SetActive(false);
                     menuUI.gameObject.SetActive(false);
                 }
                 // 재도전
                 if (selectedButton == 1)
                 {
-                    GameManager.Instance.isActiveMenu = false;
+                    isActiveMenu = false;
                     SceneManager.LoadScene("MainScene");
                 }
                 // 타이틀 화면으로
                 if (selectedButton == 2)
                 {
-                    GameManager.Instance.isActiveMenu = false;
+                    isActiveMenu = false;
                     SceneManager.LoadScene("TitleScene");
                 }
             }
