@@ -5,6 +5,7 @@ using UnityEngine;
 public class FruitManager : MonoBehaviour
 {
     [SerializeField] GameObject respawnArea;
+    [SerializeField] GameObject nextFruit;
 
     int randomNumber;
     int nextRandomNumber;
@@ -15,6 +16,7 @@ public class FruitManager : MonoBehaviour
         randomNumber = Random.Range(0, 5);
         nextRandomNumber = Random.Range(0, 5);
         CreateFruit();
+        ChangeNextFruit();
     }
 
     // Update is called once per frame
@@ -51,5 +53,11 @@ public class FruitManager : MonoBehaviour
     {
         randomNumber = nextRandomNumber;
         nextRandomNumber = Random.Range(0, 5);
+        ChangeNextFruit();
+    }
+
+    public void ChangeNextFruit()
+    {
+        nextFruit.GetComponent<SpriteRenderer>().sprite = GameManager.Instance.Fruits[nextRandomNumber].GetComponent<SpriteRenderer>().sprite;
     }
 }
