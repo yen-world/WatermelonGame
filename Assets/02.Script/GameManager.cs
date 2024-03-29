@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
 
     private int[] scoreTable = { 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66 };
     public int[] ScoreTable { get { return scoreTable; } }
-    public int currentScore;
-    public int highestScore;
+    public int currentScore = 0;
+    public int highestScore = 0;
 
     private void Awake()
     {

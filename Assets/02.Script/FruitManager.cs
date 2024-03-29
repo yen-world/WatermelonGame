@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class FruitManager : MonoBehaviour
 {
@@ -10,9 +11,13 @@ public class FruitManager : MonoBehaviour
     int randomNumber;
     int nextRandomNumber;
 
+    ScoreManager theScore;
+
     // Start is called before the first frame update
     void Start()
     {
+        theScore = FindObjectOfType<ScoreManager>();
+
         randomNumber = Random.Range(0, 5);
         nextRandomNumber = Random.Range(0, 5);
         CreateFruit();
@@ -40,6 +45,7 @@ public class FruitManager : MonoBehaviour
     public void EvolutionFruit(Vector2 collisionPoint, int level)
     {
         GameManager.Instance.currentScore += GameManager.Instance.ScoreTable[level];
+        theScore.SetScore();
 
         if (level != 11)
         {

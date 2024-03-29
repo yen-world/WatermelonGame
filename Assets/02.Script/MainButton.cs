@@ -68,6 +68,7 @@ public class MainButton : MonoBehaviour
                 if (selectedButton == 1)
                 {
                     isActiveMenu = false;
+                    GameManager.Instance.currentScore = 0;
                     SceneManager.LoadScene("MainScene");
                 }
                 // 타이틀 화면으로
