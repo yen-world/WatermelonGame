@@ -58,6 +58,7 @@ public class FruitManager : MonoBehaviour
         if (level != 11)
         {
             GameObject fruit = Instantiate(GameManager.Instance.Fruits[level], collisionPoint, Quaternion.identity);
+            fruit.transform.SetParent(transform.root);
             fruit.GetComponent<Rigidbody2D>().isKinematic = false;
             fruit.GetComponent<Fruit>().isDropped = true;
         }
