@@ -34,10 +34,7 @@ public class FruitManager : MonoBehaviour
 
     public void CreateFruit()
     {
-        GameObject fruit = Instantiate(GameManager.Instance.Fruits[randomNumber], respawnArea.transform.position, Quaternion.identity, respawnArea.transform);
-
-        if (fruit.GetComponent<PolygonCollider2D>()) fruit.GetComponent<PolygonCollider2D>().enabled = false;
-        if (fruit.GetComponent<CircleCollider2D>()) fruit.GetComponent<CircleCollider2D>().enabled = false;
+        Instantiate(GameManager.Instance.Fruits[randomNumber], respawnArea.transform.position, Quaternion.identity, respawnArea.transform);
     }
 
     public void DropFruit()
@@ -61,6 +58,9 @@ public class FruitManager : MonoBehaviour
             fruit.transform.SetParent(transform.root);
             fruit.GetComponent<Rigidbody2D>().isKinematic = false;
             fruit.GetComponent<Fruit>().isDropped = true;
+
+            if (fruit.GetComponent<PolygonCollider2D>()) fruit.GetComponent<PolygonCollider2D>().enabled = true;
+            if (fruit.GetComponent<CircleCollider2D>()) fruit.GetComponent<CircleCollider2D>().enabled = true;
         }
     }
 
