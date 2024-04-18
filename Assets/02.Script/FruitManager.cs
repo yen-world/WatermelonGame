@@ -34,7 +34,7 @@ public class FruitManager : MonoBehaviour
 
     public void CreateFruit()
     {
-        Instantiate(GameManager.Instance.Fruits[randomNumber], respawnArea.transform.position, Quaternion.identity, respawnArea.transform);
+        GameObject fruit = Instantiate(GameManager.Instance.fruits[randomNumber], respawnArea.transform.position, GameManager.Instance.fruits[randomNumber].transform.rotation, respawnArea.transform);
     }
 
     public void DropFruit()
@@ -54,7 +54,8 @@ public class FruitManager : MonoBehaviour
 
         if (level != 11)
         {
-            GameObject fruit = Instantiate(GameManager.Instance.Fruits[level], collisionPoint, Quaternion.identity);
+            GameObject fruit = Instantiate(GameManager.Instance.fruits[level], collisionPoint, GameManager.Instance.fruits[randomNumber].transform.rotation);
+
             fruit.transform.SetParent(transform.root);
             fruit.GetComponent<Rigidbody2D>().isKinematic = false;
             fruit.GetComponent<Fruit>().isDropped = true;
