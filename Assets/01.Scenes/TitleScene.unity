@@ -262,7 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c873b9e324d55408cdb4f5473f05ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActiveMenu: 0
   Fruits:
   - {fileID: 3642720870589804997, guid: d93d1dcb7a07c3e4a80fee33460d95ae, type: 3}
   - {fileID: 695202154778872636, guid: fc7e299fb8860b84485117e9adc26cbb, type: 3}
@@ -275,6 +274,8 @@ MonoBehaviour:
   - {fileID: 7002573439701170278, guid: 981094f68486fb541ae4890b7e0dc10a, type: 3}
   - {fileID: 4713221443010014215, guid: af4ca720ac368d74ab4f5cc33cb55745, type: 3}
   - {fileID: 1955683673203022755, guid: afc810730d81bed4cbe4aee93b3cb6bd, type: 3}
+  currentScore: 0
+  highestScore: 0
 --- !u!4 &568590244
 Transform:
   m_ObjectHideFlags: 0
