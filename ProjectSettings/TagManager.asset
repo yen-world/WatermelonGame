@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Fruit
+  - GameOver
   layers:
   - Default
   - TransparentFX

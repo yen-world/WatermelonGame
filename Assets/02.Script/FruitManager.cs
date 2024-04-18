@@ -74,6 +74,16 @@ public class FruitManager : MonoBehaviour
 
     public void ChangeNextFruit()
     {
-        nextFruit.GetComponent<SpriteRenderer>().sprite = GameManager.Instance.Fruits[nextRandomNumber].GetComponent<SpriteRenderer>().sprite;
+        nextFruit.GetComponent<SpriteRenderer>().sprite = GameManager.Instance.fruits[nextRandomNumber].GetComponent<SpriteRenderer>().sprite;
+    }
+
+    public void DeactivateComponent()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            if (transform.GetChild(i).GetComponent<PolygonCollider2D>()) transform.GetChild(i).GetComponent<PolygonCollider2D>().enabled = false;
+            if (transform.GetChild(i).GetComponent<CircleCollider2D>()) transform.GetChild(i).GetComponent<CircleCollider2D>().enabled = false;
+        }
     }
 }

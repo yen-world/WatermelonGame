@@ -9,17 +9,10 @@ public class Fruit : MonoBehaviour
     FruitManager fruitManager;
     FruitController controller;
 
-    // Start is called before the first frame update
     void Start()
     {
         fruitManager = FindObjectOfType<FruitManager>();
         controller = FindObjectOfType<FruitController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -50,6 +43,14 @@ public class Fruit : MonoBehaviour
                 }
                 Destroy(this.gameObject);
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.transform.tag == "GameOver" && isDropped)
+        {
+            fruitManager.DeactivateComponent();
         }
     }
 }
