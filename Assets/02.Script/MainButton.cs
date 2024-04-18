@@ -27,7 +27,7 @@ public class MainButton : MonoBehaviour
     void Update()
     {
         // ESC키를 눌러서 메뉴창 진입
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isGameOver)
         {
             if (!isActiveMenu)
             {

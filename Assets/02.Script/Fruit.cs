@@ -29,20 +29,20 @@ public class Fruit : MonoBehaviour
                 fruitManager.CreateFruit();
             }
 
-            if (other.transform.name == this.name)
-            {
-                Vector2 thisPos = this.transform.position;
-                Vector2 otherPos = other.transform.position;
+            // if (other.transform.name == this.name)
+            // {
+            //     Vector2 thisPos = this.transform.position;
+            //     Vector2 otherPos = other.transform.position;
 
-                if (thisPos.y < otherPos.y || (thisPos.y == otherPos.y && thisPos.x < otherPos.x))
-                {
-                    Vector2 collisionPoint = other.contacts[0].point;
-                    int level = int.Parse(this.transform.name[6].ToString());
+            //     if (thisPos.y < otherPos.y || (thisPos.y == otherPos.y && thisPos.x < otherPos.x))
+            //     {
+            //         Vector2 collisionPoint = other.contacts[0].point;
+            //         int level = int.Parse(this.transform.name[6].ToString());
 
-                    fruitManager.EvolutionFruit(collisionPoint, level);
-                }
-                Destroy(this.gameObject);
-            }
+            //         fruitManager.EvolutionFruit(collisionPoint, level);
+            //     }
+            //     Destroy(this.gameObject);
+            // }
         }
     }
 
@@ -50,7 +50,9 @@ public class Fruit : MonoBehaviour
     {
         if (other.transform.tag == "GameOver" && isDropped)
         {
+            GameManager.Instance.isGameOver = true;
             fruitManager.DeactivateComponent();
+            GameManager.Instance.GameOver();
         }
     }
 }

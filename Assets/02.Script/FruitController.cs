@@ -22,7 +22,7 @@ public class FruitController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!mainButtonScript.isActiveMenu)
+        if (!mainButtonScript.isActiveMenu && !GameManager.Instance.isGameOver)
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {

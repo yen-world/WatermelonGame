@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c873b9e324d55408cdb4f5473f05ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fruits:
+  fruits:
   - {fileID: 7036646259198047503, guid: 495402a222755f946890a2eac3f2f346, type: 3}
   - {fileID: 7022600621136282303, guid: a9d0c7a12f1c017498f5309666eec9ff, type: 3}
   - {fileID: 8021045078132601979, guid: a5acb72a14d0c634db3ba7ddf07b047e, type: 3}
@@ -276,6 +276,8 @@ MonoBehaviour:
   - {fileID: 6321000972271633818, guid: 40edc5df61e64414a9cef0fd17963636, type: 3}
   currentScore: 0
   highestScore: 0
+  isGameOver: 0
+  gameOverUI: {fileID: 0}
 --- !u!4 &568590244
 Transform:
   m_ObjectHideFlags: 0
@@ -773,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 8480482475362584882, guid: ff52713030e1c804c9997083884b5cb5, type: 3}
       propertyPath: m_Name
       value: GameInfoButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480482475362584882, guid: ff52713030e1c804c9997083884b5cb5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class FruitManager : MonoBehaviour
 {
@@ -34,7 +33,7 @@ public class FruitManager : MonoBehaviour
 
     public void CreateFruit()
     {
-        GameObject fruit = Instantiate(GameManager.Instance.fruits[randomNumber], respawnArea.transform.position, GameManager.Instance.fruits[randomNumber].transform.rotation, respawnArea.transform);
+        Instantiate(GameManager.Instance.fruits[randomNumber], respawnArea.transform.position, GameManager.Instance.fruits[randomNumber].transform.rotation, respawnArea.transform);
     }
 
     public void DropFruit()

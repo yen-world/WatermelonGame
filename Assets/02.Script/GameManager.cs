@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public int currentScore = 0;
     public int highestScore = 0;
 
+    public bool isGameOver;
+    public GameObject gameOverUI;
+    public float gameOverWaitTime = 3f;
+    public float gameOverCurrentTime;
+
     private void Awake()
     {
         if (instance == null)
@@ -28,15 +33,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void GameOver()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        gameOverUI = GameObject.Find("Canvas").transform.Find("GameOverUI").gameObject;
+        gameObject.SetActive(true);
     }
 }
