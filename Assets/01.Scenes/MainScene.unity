@@ -2044,6 +2044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnArea: {fileID: 1587744313}
   nextFruit: {fileID: 1914922709}
+  isDropped: 0
 --- !u!4 &1480892572
 Transform:
   m_ObjectHideFlags: 0
@@ -2790,7 +2791,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.1, y: 5.8, z: -9706.213}
-  m_LocalScale: {x: 160, y: 160, z: 160}
+  m_LocalScale: {x: 80, y: 80, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2109637239}
@@ -2836,7 +2837,7 @@ SpriteRenderer:
   m_SortingLayerID: 1615440631
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4c22ee35c9e2f6240b51134fb051722b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 92fdb75a2118a90439cdebc641f3373e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
