@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainButton : MonoBehaviour
@@ -16,14 +15,12 @@ public class MainButton : MonoBehaviour
     // 버튼 활성화, 버튼 비활성화 이미지를 담은 스프라이트
     [SerializeField] SpriteRenderer[] mainButtonSprites;
 
-    // Start is called before the first frame update
     void Start()
     {
         selectedButton = 0;
         isActiveMenu = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // ESC키를 눌러서 메뉴창 진입
@@ -86,8 +83,8 @@ public class MainButton : MonoBehaviour
     {
         for (int i = 0; i < _buttons.Length; i++)
         {
-            _buttons[i].GetComponent<Image>().sprite = _sprites[i * 2].sprite;
+            _buttons[i].GetComponent<SpriteRenderer>().sprite = _sprites[i * 2].sprite;
         }
-        _buttons[_targetNum].GetComponent<Image>().sprite = _sprites[_targetNum * 2 + 1].sprite;
+        _buttons[_targetNum].GetComponent<SpriteRenderer>().sprite = _sprites[_targetNum * 2 + 1].sprite;
     }
 }

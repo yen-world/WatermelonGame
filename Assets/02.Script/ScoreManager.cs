@@ -8,21 +8,16 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text currentScoreText;
     public TMP_Text highestScoreText;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentScoreText.text = GameManager.Instance.currentScore.ToString();
         highestScoreText.text = GameManager.Instance.highestScore.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // 스코어 갱신
     public void SetScore()
     {
+        // 최고 점수보다 현재 점수가 높다면 최고 점수 갱신
         if (GameManager.Instance.highestScore < GameManager.Instance.currentScore)
         {
             GameManager.Instance.highestScore = GameManager.Instance.currentScore;

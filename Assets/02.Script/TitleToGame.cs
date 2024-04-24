@@ -7,13 +7,12 @@ public class TitleToGame : MonoBehaviour
 {
     // TitleToGameBackground에 붙어있는 Animator
     Animator animator;
-    // Start is called before the first frame update
+
     void Start()
     {
         animator = this.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // 현재 애니메이션이 종료되면 메인씬으로 전환

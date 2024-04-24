@@ -16,16 +16,12 @@ public class TitleButton : MonoBehaviour
     // 메인 씬으로 이동하기 전 띄워주는 오브젝트
     [SerializeField] GameObject titleToGameBackground;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         selectedButton = 0;
-        // 처음 시작했을 때는 첫 번재 버튼이 선택된 상태
         titleButtons[selectedButton].GetComponent<SpriteRenderer>().sprite = titleButtonSprites[1].sprite;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // 상하 방향키로 버튼 셀렉트

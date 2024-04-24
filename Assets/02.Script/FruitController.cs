@@ -9,21 +9,21 @@ public class FruitController : MonoBehaviour
 
     public GameObject line;
 
-    FruitManager theFruit;
+    FruitManager fruitManager;
     MainButton mainButtonScript;
 
-    // Start is called before the first frame update
     void Start()
     {
-        theFruit = FindObjectOfType<FruitManager>();
+        fruitManager = FindObjectOfType<FruitManager>();
         mainButtonScript = FindObjectOfType<MainButton>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // 메뉴가 꺼져있는 상황이고, 게임이 종료되지 않았을 때
         if (!mainButtonScript.isActiveMenu && !GameManager.Instance.isGameOver)
         {
+            // 좌우 방향키로 컨트롤러의 위치 조절
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 if (this.transform.position.x > -1.75f)
@@ -40,11 +40,12 @@ public class FruitController : MonoBehaviour
                     this.transform.Translate(vector * speed * Time.deltaTime);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Space) && theFruit.isDropped)
+            // 이전 과일의 낙하가 완료되었고, 스페이스바를 눌렀을 때
+            if (Input.GetKeyDown(KeyCode.Space) && fruitManager.isDropped)
             {
                 line.gameObject.SetActive(false);
-                theFruit.isDropped = false;
-                theFruit.DropFruit();
+                fruitManager.isDropped = false;
+                fruitManager.DropFruit();
             }
         }
     }

@@ -9,12 +9,9 @@ public class GameOver : MonoBehaviour
     int selectedButton;
 
     [SerializeField] GameObject blackBackground;
-    // 메인 씬의 버튼 오브젝트
     [SerializeField] GameObject[] gameOverButtons;
-    // 버튼 활성화, 버튼 비활성화 이미지를 담은 스프라이트
     [SerializeField] Sprite[] gameOverButtonSprites;
 
-    // Start is called before the first frame update
     void Start()
     {
         selectedButton = 0;
@@ -22,7 +19,6 @@ public class GameOver : MonoBehaviour
         ChangeButtonSprite(gameOverButtons, gameOverButtonSprites, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // 좌우 방향키 버튼으로 버튼 셀렉트
@@ -39,9 +35,9 @@ public class GameOver : MonoBehaviour
             ChangeButtonSprite(gameOverButtons, gameOverButtonSprites, selectedButton);
         }
 
-        // 메뉴창이 열려있을 때 스페이스바를 눌러서 해당 버튼 실행
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // 생성된 스크린샷 파일 삭제
             File.Delete("Assets/Resources/Result");
 
             // 재도전
