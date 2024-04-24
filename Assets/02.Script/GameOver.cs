@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameOver : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class GameOver : MonoBehaviour
         // 메뉴창이 열려있을 때 스페이스바를 눌러서 해당 버튼 실행
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            File.Delete("Assets/Resources/Result");
+
             // 재도전
             if (selectedButton == 0)
             {

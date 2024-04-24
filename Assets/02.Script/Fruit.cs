@@ -52,7 +52,7 @@ public class Fruit : MonoBehaviour
         {
             GameManager.Instance.isGameOver = true;
             fruitManager.DeactivateComponent();
-            GameManager.Instance.GameOver();
+            StartCoroutine(GameManager.Instance.GameOver());
         }
     }
 }

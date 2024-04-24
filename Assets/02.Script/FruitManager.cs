@@ -19,8 +19,8 @@ public class FruitManager : MonoBehaviour
         theScore = FindObjectOfType<ScoreManager>();
 
         isDropped = true;
-        randomNumber = Random.Range(0, 5);
-        nextRandomNumber = Random.Range(0, 5);
+        randomNumber = Random.Range(4, 5);
+        nextRandomNumber = Random.Range(4, 5);
         CreateFruit();
         ChangeNextFruit();
     }
@@ -67,7 +67,7 @@ public class FruitManager : MonoBehaviour
     public void GetNextFruit()
     {
         randomNumber = nextRandomNumber;
-        nextRandomNumber = Random.Range(0, 5);
+        nextRandomNumber = Random.Range(4, 5);
         ChangeNextFruit();
     }
 

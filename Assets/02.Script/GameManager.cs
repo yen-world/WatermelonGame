@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using UnityEditor;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -33,9 +36,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public IEnumerator GameOver()
     {
         gameOverUI = GameObject.Find("Canvas").transform.Find("GameOverUI").gameObject;
-        gameObject.SetActive(true);
+        GameObject screenShot = gameOverUI.transform.Find("ScreenShot").gameObject;
+
+        yield return new WaitForEndOfFrame();
+        ScreenCapture.CaptureScreenshot("Assets/Resources/Result.png");
+
+        yield return new WaitForSeconds(1f);
+        AssetDatabase.Refresh();
+
+        screenShot.GetComponent<SpriteRenderer>().sprite = Resources.Load("Result", typeof(Sprite)) as Sprite;
+        gameOverUI.SetActive(true);
     }
 }
