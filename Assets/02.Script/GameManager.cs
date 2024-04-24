@@ -32,29 +32,38 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (File.Exists("Assets/Result.png")) File.Delete("Assets/Result.png");
     }
 
-    // 게임오버 코루틴
     public IEnumerator GameOver()
     {
         gameOverUI = GameObject.Find("Canvas").transform.Find("GameOverUI").gameObject;
-        GameObject screenShot = gameOverUI.transform.Find("ScreenShot").gameObject;
+        GameObject screenshotUI = gameOverUI.transform.Find("ScreenShot").gameObject;
 
-        // 안정적인 스크린샷을 위해 한 프레임 대기 이후 스크린샷 파일 생성
+        // 안정적인 스크린샷을 위해 한 프레임 대기 이후 스크린샷 텍스쳐 생성
         yield return new WaitForEndOfFrame();
-        ScreenCapture.CaptureScreenshot("Assets/Resources/Result.png");
+        Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
 
-        // 1초 대기 후 에셋 새로고침
-        yield return new WaitForSeconds(1f);
-        AssetDatabase.Refresh();
+        // 경로와 파일 이름을 지정하고 PNG 파일 생성
+        string filePath = Path.Combine("Assets/", "Result.png");
+        File.WriteAllBytes(filePath, screenshot.EncodeToPNG());
+
+        // PNG 파일이 생성될 때까지 대기
+        yield return new WaitUntil(() => File.Exists(filePath));
+
+        // 저장된 PNG 파일을 텍스쳐로 불러옴
+        byte[] fileData = File.ReadAllBytes(filePath);
+        Texture2D texture = new Texture2D(0, 0);
+        texture.LoadImage(fileData);
 
         // 스크린샷 오브젝트의 스케일을 사용자 해상도에 대응하여 조절
-        float width = 1920 / (float)Screen.width * screenShot.transform.localScale.x;
-        float height = 1080 / (float)Screen.height * screenShot.transform.localScale.y;
-        screenShot.transform.localScale = new Vector2(width, height);
+        float width = 1920 / (float)Screen.width * screenshotUI.transform.localScale.x;
+        float height = 1080 / (float)Screen.height * screenshotUI.transform.localScale.y;
+        screenshotUI.transform.localScale = new Vector2(width, height);
 
-        // 저장된 스크린샷 스프라이트를 오브젝트에 적용
-        screenShot.GetComponent<SpriteRenderer>().sprite = Resources.Load("Result", typeof(Sprite)) as Sprite;
+        // 저장된 스크린샷 텍스쳐를 스프라이트로 변환해서 오브젝트에 적용
+        screenshotUI.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
         gameOverUI.SetActive(true);
     }
 }

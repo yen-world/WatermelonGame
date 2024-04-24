@@ -38,7 +38,7 @@ public class GameOver : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // 생성된 스크린샷 파일 삭제
-            File.Delete("Assets/Resources/Result");
+            File.Delete("Assets/Result.png");
 
             // 재도전
             if (selectedButton == 0)
