@@ -59,8 +59,7 @@ public class FruitManager : MonoBehaviour
             fruit.GetComponent<Rigidbody2D>().isKinematic = false;
             fruit.GetComponent<Fruit>().isDropped = true;
 
-            if (fruit.GetComponent<PolygonCollider2D>()) fruit.GetComponent<PolygonCollider2D>().enabled = true;
-            if (fruit.GetComponent<CircleCollider2D>()) fruit.GetComponent<CircleCollider2D>().enabled = true;
+            StartCoroutine(fruit.GetComponent<Fruit>().SetCollider());
         }
     }
 

@@ -29,20 +29,23 @@ public class Fruit : MonoBehaviour
                 fruitManager.CreateFruit();
             }
 
-            // if (other.transform.name == this.name)
-            // {
-            //     Vector2 thisPos = this.transform.position;
-            //     Vector2 otherPos = other.transform.position;
+            if (other.transform.name == this.name)
+            {
+                if (GetComponent<PolygonCollider2D>()) GetComponent<PolygonCollider2D>().enabled = false;
+                if (GetComponent<CircleCollider2D>()) GetComponent<CircleCollider2D>().enabled = false;
 
-            //     if (thisPos.y < otherPos.y || (thisPos.y == otherPos.y && thisPos.x < otherPos.x))
-            //     {
-            //         Vector2 collisionPoint = other.contacts[0].point;
-            //         int level = int.Parse(this.transform.name[6].ToString());
+                Vector2 thisPos = this.transform.position;
+                Vector2 otherPos = other.transform.position;
 
-            //         fruitManager.EvolutionFruit(collisionPoint, level);
-            //     }
-            //     Destroy(this.gameObject);
-            // }
+                if (thisPos.y < otherPos.y || (thisPos.y == otherPos.y && thisPos.x < otherPos.x))
+                {
+                    Vector2 collisionPoint = other.contacts[0].point;
+                    int level = int.Parse(this.transform.name[6].ToString());
+
+                    fruitManager.EvolutionFruit(collisionPoint, level);
+                }
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -54,5 +57,13 @@ public class Fruit : MonoBehaviour
             fruitManager.DeactivateComponent();
             StartCoroutine(GameManager.Instance.GameOver());
         }
+    }
+
+    public IEnumerator SetCollider()
+    {
+        yield return new WaitForEndOfFrame();
+
+        if (GetComponent<PolygonCollider2D>()) GetComponent<PolygonCollider2D>().enabled = true;
+        if (GetComponent<CircleCollider2D>()) GetComponent<CircleCollider2D>().enabled = true;
     }
 }
