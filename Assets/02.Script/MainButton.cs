@@ -8,17 +8,20 @@ public class MainButton : MonoBehaviour
     int selectedButton;
     public bool isActiveMenu;
 
-    [SerializeField] GameObject menuUI;
     [SerializeField] GameObject blackBackground;
     // 메인 씬의 버튼 오브젝트
     [SerializeField] GameObject[] mainButtons;
     // 버튼 활성화, 버튼 비활성화 이미지를 담은 스프라이트
     [SerializeField] SpriteRenderer[] mainButtonSprites;
 
+    Animator animator;
+
     void Start()
     {
         selectedButton = 0;
         isActiveMenu = false;
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -30,7 +33,7 @@ public class MainButton : MonoBehaviour
             {
                 isActiveMenu = true;
                 blackBackground.gameObject.SetActive(true);
-                menuUI.gameObject.SetActive(true);
+                animator.SetBool("Active", true);
                 ChangeButtonSprite(mainButtons, mainButtonSprites, 0);
             }
         }
@@ -59,7 +62,7 @@ public class MainButton : MonoBehaviour
                 {
                     isActiveMenu = false;
                     blackBackground.gameObject.SetActive(false);
-                    menuUI.gameObject.SetActive(false);
+                    animator.SetBool("Active", false);
                 }
                 // 재도전
                 if (selectedButton == 1)
