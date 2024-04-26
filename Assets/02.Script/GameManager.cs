@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
 
         // 경로와 파일 이름을 지정하고 PNG 파일 생성
-        string filePath = Path.Combine("Assets/", "Result.png");
+        string filePath = Application.dataPath + "/Resources/Result.png";
         File.WriteAllBytes(filePath, screenshot.EncodeToPNG());
 
         // PNG 파일이 생성될 때까지 대기
