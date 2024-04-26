@@ -50,6 +50,7 @@ public class GameOver : MonoBehaviour
             // 타이틀 화면으로
             if (selectedButton == 1)
             {
+                GameManager.Instance.currentScore = 0;
                 SceneManager.LoadScene("TitleScene");
                 GameManager.Instance.isGameOver = false;
             }

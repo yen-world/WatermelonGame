@@ -72,6 +72,7 @@ public class MainButton : MonoBehaviour
                 if (selectedButton == 2)
                 {
                     isActiveMenu = false;
+                    GameManager.Instance.currentScore = 0;
                     SceneManager.LoadScene("TitleScene");
                 }
             }
