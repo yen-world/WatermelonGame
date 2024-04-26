@@ -224,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &50892867
 Animator:
   serializedVersion: 5
@@ -3860,7 +3860,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActiveMenu: 0
-  menuUI: {fileID: 603603648}
   blackBackground: {fileID: 950916289}
   mainButtons:
   - {fileID: 579727948}
